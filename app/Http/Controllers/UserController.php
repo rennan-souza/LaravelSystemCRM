@@ -91,6 +91,7 @@ class UserController extends Controller
   }
 
   public function editAction(Request $request) {
+
     $data = $request->only([
       'id',
       'name',
@@ -111,6 +112,11 @@ class UserController extends Controller
     }
 
     $user = User::find($data['id']);
+
+    if (!$user || Auth::id() === $user->id) {
+      return redirect('/usuarios');
+    }
+
     $user->name = $data['name'];
     $user->email = $data['email'];
     $user->save();

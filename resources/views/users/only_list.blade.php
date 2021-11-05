@@ -13,12 +13,12 @@
                 <tr>
                     <td>{{ $u->name }}</td>
                     <td>{{ $u->email }}</td>
+                    <td>
+                        @foreach ($u->roles as $r)
+                            <span class="badge badge-info">{{ $r->name }}</span>
+                        @endforeach
+                    </td>
                     @if (Auth::User()->id != $u->id)
-                        <td>
-                            @foreach ($u->roles as $r)
-                                <span class="badge badge-info">{{ $r->name }}</span>
-                            @endforeach
-                        </td>
                         <td>
                             <a href="{{ url('/usuarios/editar', ['id' => $u->id]) }}" class="btn btn-sm btn-primary shadow-none"><i class="fas fa-pen-alt"></i></a>
                             <a href="{{ url('/usuarios/excluir', ['id' => $u->id]) }}"
