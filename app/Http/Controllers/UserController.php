@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Role;
 
@@ -68,9 +69,55 @@ class UserController extends Controller
     $user->save();
     $user->roles()->attach($data['roles']);
 
-    return redirect('/usuarios/cadastrar')
-      ->with('success', 'Usuário cadastrado com sucesso, SENHA: '. $provisional_password);
+    return redirect('/usuarios')
+      ->with('success', 'Usuário cadastrado com sucesso');
  
+  }
+
+  public function editView($id) {
+
+    $user = User::find($id);
+
+    if (!$user || Auth::id() === $user->id) {
+      return redirect('/usuarios');
+    }
+
+    $roles = Role::all();
+
+    return view('users/edit', [
+      'roles' => $roles,
+      'user' => $user
+    ]);
+  }
+
+  public function editAction(Request $request) {
+    $data = $request->only([
+      'id',
+      'name',
+      'email',
+      'roles',
+    ]);
+
+    $validator = Validator::make($data, [
+      'name' => ['required', 'string', 'max:255'],
+      'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($data['id'])],
+      'roles' => ['required'],
+    ]);
+
+    if($validator->fails()) {
+      return redirect('usuarios/editar/'.$data['id'])
+          ->withErrors($validator)
+          ->withInput();
+    }
+
+    $user = User::find($data['id']);
+    $user->name = $data['name'];
+    $user->email = $data['email'];
+    $user->save();
+    $user->roles()->sync($data['roles']);
+
+    return redirect('/usuarios')
+      ->with('success', 'Usuário editado com sucesso');
   }
 
   public function deleteView($id) {
@@ -88,6 +135,7 @@ class UserController extends Controller
 
   public function deleteAction($id) {
     User::find($id)->delete();
-    return redirect('/usuarios');
+    return redirect('/usuarios')
+      ->with('success', 'Usuário excluído com sucesso');
   }
 }

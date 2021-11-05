@@ -30,3 +30,5 @@ Route::get('/usuarios/cadastrar', [UserController::class, 'storeView']);
 Route::post('/usuarios/cadastrar', [UserController::class, 'storeAction']);
 Route::get('/usuarios/excluir/{id}', [UserController::class, 'deleteView']);
 Route::get('/usuarios/excluir/confirm/{id}', [UserController::class, 'deleteAction']);
+Route::get('/usuarios/editar/{id}', [UserController::class, 'editView']);
+Route::post('/usuarios/editar', [UserController::class, 'editAction']);

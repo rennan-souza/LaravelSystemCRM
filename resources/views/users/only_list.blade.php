@@ -20,7 +20,7 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="#" class="btn btn-sm btn-primary shadow-none"><i class="fas fa-pen-alt"></i></a>
+                            <a href="{{ url('/usuarios/editar', ['id' => $u->id]) }}" class="btn btn-sm btn-primary shadow-none"><i class="fas fa-pen-alt"></i></a>
                             <a href="{{ url('/usuarios/excluir', ['id' => $u->id]) }}"
                                 class="btn btn-sm btn-danger shadow-none"><i class="fas fa-trash-alt"></i></a>
                         </td>

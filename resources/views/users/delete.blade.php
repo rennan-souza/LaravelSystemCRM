@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Cadastrar usuário')
+@section('title', 'Usuário')
 
 @section('content')
     <div class="text-secondary mb-3">
@@ -10,9 +10,9 @@
     <div class="card">
         <div class="card-body">
             <div class="mb-4 text-warning">
-              <h2>Tem certeza que deseja excluir o usuário?</h2>
+              <h2><i class="fas fa-exclamation-triangle"></i> Tem certeza que deseja excluir o usuário?</h2>
             </div>
-            <div class="mb-4">
+            <div class="mb-4 text-secondary">
               <p>
                 <strong>Nome: </strong>{{ $user->name }} <br>
                 <strong>Email: </strong>{{ $user->email }} <br>
@@ -27,7 +27,7 @@
                 <i class="fas fa-trash-alt"></i>
                 EXCLUIR
               </a>
-              <a href="{{ url('/usuarios') }}" class="btn btn-secondary shadow-none">
+              <a href="{{ url('/usuarios') }}" class="btn btn-dark shadow-none">
                 <i class="fas fa-times-circle"></i>
                 CANCELAR
               </a>

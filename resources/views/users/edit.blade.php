@@ -1,10 +1,10 @@
 @extends('layout')
 
-@section('title', 'Cadastrar usuário')
+@section('title', 'Editar usuário')
 
 @section('content')
     <div class="text-secondary mb-3">
-        <h4>Cadastrar usuário</h4>
+        <h4>Editar usuário</h4>
     </div>
 
     <div class="mb-2">
@@ -16,19 +16,20 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ url('/usuarios/cadastrar') }}" method="POST">
+            <form action="{{ url('/usuarios/editar') }}" method="POST">
                 @csrf
                 
+                <input type="hidden" name="id" value="{{ $user->id }}">
                 <div class="form-group">
                     <label>Nome:</label>
                     <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                        value="{{ old('name') }}">
+                        value="{{ $user->name }}">
                     @error('name') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
                 <div class="form-group">
                     <label>Email:</label>
                     <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
-                        value="{{ old('email') }}">
+                        value="{{ $user->email }}">
                     @error('email') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
                 <div class="form-group">
@@ -36,7 +37,7 @@
                     @foreach ($roles as $r)
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="roles[]" value="{{ $r->id }}"
-                                {{ in_array($r->id, old('roles', [])) ? 'checked' : '' }}>
+                            @foreach ($user->roles as $ur) {{ $r-> id === $ur->id ? 'checked' : '' }} @endforeach >
                             <label class="form-check-label">
                                 {{ $r->name }}
                             </label>
