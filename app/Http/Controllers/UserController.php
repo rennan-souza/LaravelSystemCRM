@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Role;
 
@@ -72,4 +73,21 @@ class UserController extends Controller
  
   }
 
+  public function deleteView($id) {
+
+    $user = User::find($id);
+
+    if (!$user || Auth::id() === $user->id) {
+      return redirect('/usuarios');
+    }
+
+    return view('users/delete', [
+      'user' => $user
+    ]);
+  }
+
+  public function deleteAction($id) {
+    User::find($id)->delete();
+    return redirect('/usuarios');
+  }
 }
