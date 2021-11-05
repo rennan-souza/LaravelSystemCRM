@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CustomerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::get('/usuarios/excluir/{id}', [UserController::class, 'deleteView']);
 Route::get('/usuarios/excluir/confirm/{id}', [UserController::class, 'deleteAction']);
 Route::get('/usuarios/editar/{id}', [UserController::class, 'editView']);
 Route::post('/usuarios/editar', [UserController::class, 'editAction']);
+
+
+Route::get('/clientes/ajax', [CustomerController::class, 'listAction']);
+Route::get('/clientes', [CustomerController::class, 'listView']);

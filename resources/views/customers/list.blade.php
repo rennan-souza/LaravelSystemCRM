@@ -1,20 +1,20 @@
 @extends('layout')
 
-@section('title', 'Usuários')
+@section('title', 'Clientes')
 
 @section('content')
     <div class="text-secondary mb-3">
-        <h4>Usuários</h4>
+        <h4>Clientes</h4>
     </div>
 
     <div class="mb-2">
-        <a href="{{ url('/usuarios/cadastrar') }}" class="btn btn-success shadow-none">
+        <a href="{{ url('clientes/cadastrar')}}" class="btn btn-success shadow-none">
             <i class="fas fa-plus"></i>
             NOVO
         </a>
     </div>
 
-    <form action="{{ url('/usuarios') }}" method="GET" id="form">
+    <form action="{{ url('/clientes') }}" method="GET" id="form">
         <div class="mb-2" style="width: 250px;">
             <input type="text" class="form-control shadow-none" name="search" placeholder="Pesquisar">
             <input type="hidden" id="page" name="page" value="0">
@@ -61,7 +61,7 @@
             var data = $('#form').serialize();
 
             $.ajax({
-                url: '{{ url('/usuarios/ajax') }}',
+                url: '{{ url('/clientes/ajax') }}',
                 method: 'GET',
                 data: data
             }).done(function(data) {

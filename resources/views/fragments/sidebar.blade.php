@@ -22,7 +22,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ url('/clientes') }}" class="{{ Request::is('clientes**') ? 'sidebar-link-active' : '' }}">
             <div class="sidebar-nav-icon">
                 <i class="fas fa-handshake"></i>
             </div>
