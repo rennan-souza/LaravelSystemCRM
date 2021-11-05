@@ -13,7 +13,7 @@
             </div>
         </a>
 
-        <a href="{{ url('/usuarios') }}" class="{{ Request::is('usuarios') ? 'sidebar-link-active' : '' }}">
+        <a href="{{ url('/usuarios') }}" class="{{ Request::is('usuarios**') ? 'sidebar-link-active' : '' }}">
             <div class="sidebar-nav-icon">
                 <i class="fas fa-users"></i>
             </div>

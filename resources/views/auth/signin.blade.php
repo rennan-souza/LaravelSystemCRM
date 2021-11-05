@@ -27,7 +27,7 @@
         <div class="auth-title text-center text-secondary">
             <h4>Login</h4>
         </div>
-        <form action="{{ url('/signin') }}" method="POST">
+        <form action="{{ url('/login') }}" method="POST">
             @csrf
             <div class="form-group">
                 <input type="text" class="form-control" name="email" placeholder="Email">

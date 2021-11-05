@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Dashboard')
+@section('title', 'Usuários')
 
 @section('content')
     <div class="text-secondary mb-3">
@@ -8,10 +8,10 @@
     </div>
 
     <div class="mb-2">
-        <button class="btn btn-success shadow-none">
+        <a href="{{ url('/usuarios/cadastrar') }}" class="btn btn-success shadow-none">
             <i class="fas fa-plus"></i>
             NOVO
-        </button>
+        </a>
     </div>
 
     <form action="{{ url('/usuarios') }}" method="GET" id="form">
