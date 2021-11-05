@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', [AuthController::class, 'signinView'])->name('login');
+Route::post('/signin', [AuthController::class, 'signinAction']);
+Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::get('/dashboard', [DashboardController::class, 'dashboardView']);
+
+Route::get('/usuarios/ajax', [UserController::class, 'listAction']);
+Route::get('/usuarios', [UserController::class, 'listView']);

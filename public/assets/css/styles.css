@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #fafafa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.form-control, .custom-select {
+  border-color: #ccc;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border: 2px solid #007bff;
+}
+
+.navbar {
+  width: 100%;
+  height: 60px;
+  background: #fff;
+  display: flex;
+  justify-content: unset;
+  padding: 0;
+  position: fixed;
+  z-index: 3;
+}
+
+.navbar-logo-container {
+  width: 250px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-logo {
+  font-size: 22px;
+  text-decoration: none;
+  color:#343a40;
+}
+
+.navbar-logo:hover {
+  text-decoration: none;
+  color:#343a40;
+}
+
+.navbar-btn-menu-expand-container {
+  width: 50px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-btn-menu-expand-container i {
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.navbar-username-icon {
+  display: none;
+}
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: #343a40;
+  position: fixed;
+  z-index: 5;
+  box-shadow: 1px 1px 2px 2px #aaa;
+}
+
+.sidebar-expand {
+  display: none;
+}
+
+.sidebar-logo-container {
+  width: 250px;
+  height: 60px;
+  border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-logo {
+  font-size: 22px;
+  text-decoration: none;
+  color:#fff;
+}
+
+.sidebar-logo:hover {
+  text-decoration: none;
+  color:#fff;
+}
+
+.sidebar-nav {
+  margin: 5px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  color: #ccc;
+  text-decoration: none;
+  margin-top: 5px;
+}
+
+.sidebar-nav a:hover {
+  background: rgb(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.sidebar-link-active {
+  background: rgb(255, 255, 255, 0.2);
+  border-radius: 5px;
+}
+
+.sidebar-nav-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-nav-icon i {
+  font-size: 1.2em;
+}
+
+.sidebar-nav-textlink {
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.container-content {
+  padding: 70px 10px 0 260px;
+}
+
+.container-content-expand {
+  padding: 70px 10px 0 10px;
+}
+
+.sidebar-contaianer-close {
+  width: 100%;
+  height: 100vh;
+  background: #eee;
+  opacity: 0.5;
+  position: fixed;
+  z-index: 4;
+  display: none;
+}
+
+@media(max-width: 992px) {
+
+  .container-content {
+    padding: 70px 10px 0 10px;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .sidebar-expand {
+    display: unset;
+  }
+}
+
+@media(max-width: 768px) {
+
+  .sidebar-contaianer-close-expand {
+    display: unset;
+  }  
+
+  .navbar-logo-container {
+    display: none;
+  }
+
+  .navbar-username {
+    display: none;
+  }
+
+  .navbar-username-icon {
+    font-size: 1.4em;
+    display: unset;
+  }
+}
