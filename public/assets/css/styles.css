@@ -13,6 +13,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
 }
 
+.table {
+  margin-bottom: 0;
+}
+
+.card {
+  margin-bottom: 10px;
+}
+
+.card-body {
+  padding: 50px 100px 50px 100px;
+}
+
 .form-control, .custom-select {
   border-color: #ccc;
 }
@@ -202,5 +214,9 @@ h1, h2, h3, h4, h5, h6 {
   .navbar-username-icon {
     font-size: 1.4em;
     display: unset;
+  }
+
+  .card-body {
+    padding: 50px 10px 50px 10px;
   }
 }

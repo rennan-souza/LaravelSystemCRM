@@ -1,34 +1,37 @@
 @if (count($customers) > 0)
-    <table class="table table-borderless table-hover">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>CPF</th>
-                <th>Data de nascimento</th>
-                <th>Telefone</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($customers as $c)
-                <tr>
-                    <td>{{ $c->name }}</td>
-                    <td>{{ $c->cpf }}</td>
-                    <td>{{ $c->birth_date }}</td>
-                    <td>{{ $c->phone }}</td>
-                    <td>{{ $c->email }}</td>
-                    <td>
-                        <a href="{{ url('/clientes/editar', ['id' => $c->id]) }}"
-                            class="btn btn-sm btn-primary shadow-none"><i class="fas fa-pen-alt"></i></a>
-                        <a href="{{ url('/clientes/excluir', ['id' => $c->id]) }}"
-                            class="btn btn-sm btn-danger shadow-none"><i class="fas fa-trash-alt"></i></a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-
+    <div class="card">
+        <div class="table-responsive">
+            <table class="table table-borderless table-hover">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Data de nascimento</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($customers as $c)
+                        <tr>
+                            <td>{{ $c->name }}</td>
+                            <td>{{ $c->cpf }}</td>
+                            <td>{{ $c->birth_date }}</td>
+                            <td>{{ $c->phone }}</td>
+                            <td>{{ $c->email }}</td>
+                            <td>
+                                <a href="{{ url('/clientes/editar', ['id' => $c->id]) }}"
+                                    class="btn btn-sm btn-primary shadow-none"><i class="fas fa-pen-alt"></i></a>
+                                <a href="{{ url('/clientes/excluir', ['id' => $c->id]) }}"
+                                    class="btn btn-sm btn-danger shadow-none"><i class="fas fa-trash-alt"></i></a>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- 
     <div class="mt-2">
         <nav>

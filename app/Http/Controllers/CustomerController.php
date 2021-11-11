@@ -27,4 +27,9 @@ class CustomerController extends Controller
   public function listView() {
     return view('customers/list');
   }
+
+  public function storeView() {
+    return view('customers/register');
+  }
+
 }

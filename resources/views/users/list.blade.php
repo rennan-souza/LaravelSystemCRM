@@ -30,10 +30,8 @@
         </div>
     @endif
 
-    <div class="card">
-        <div class="table-responsive">
+    <div class="add-table">
 
-        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
@@ -65,7 +63,7 @@
                 method: 'GET',
                 data: data
             }).done(function(data) {
-                $('.table-responsive').html(data);
+                $('.add-table').html(data);
             });
         }
     </script>

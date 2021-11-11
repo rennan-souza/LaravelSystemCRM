@@ -36,7 +36,13 @@
                 <input type="password" class="form-control" name="password" placeholder="Senha">
             </div>
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block shadow-none">Entrar</button>
+                <button type="submit" href="./index.html" class="btn btn-primary btn-block shadow-none"
+                    onclick="setLoad()" id="btnSubmit">
+                    ENTRAR
+                </button>
+                <button class="btn btn-primary btn-block shadow-none" type="button" disabled id="btnLoad" hidden>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                </button>
             </div>
 
             @if (session('danger'))
@@ -66,6 +72,12 @@
         integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous">
     </script>
 
+    <script>
+        function setLoad() {
+            document.getElementById("btnSubmit").hidden = true;
+            document.getElementById("btnLoad").hidden = false;
+        }
+    </script>
 </body>
 
 </html>

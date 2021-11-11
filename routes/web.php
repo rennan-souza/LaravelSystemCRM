@@ -37,3 +37,4 @@ Route::post('/usuarios/editar', [UserController::class, 'editAction']);
 
 Route::get('/clientes/ajax', [CustomerController::class, 'listAction']);
 Route::get('/clientes', [CustomerController::class, 'listView']);
+Route::get('/clientes/cadastrar', [CustomerController::class, 'storeView']);
