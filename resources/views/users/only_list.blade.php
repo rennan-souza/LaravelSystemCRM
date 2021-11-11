@@ -4,6 +4,7 @@
             <table class="table table-borderless table-hover">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Nome</th>
                         <th>Email</th>
                         <th>Perfi</th>
@@ -13,6 +14,7 @@
                 <tbody>
                     @foreach ($users as $u)
                         <tr>
+                            <td>{{ $u->id }}</td>
                             <td>{{ $u->name }}</td>
                             <td>{{ $u->email }}</td>
                             <td>

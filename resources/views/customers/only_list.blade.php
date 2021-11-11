@@ -4,6 +4,7 @@
             <table class="table table-borderless table-hover">
                 <thead>
                     <tr>
+                        <th>ID</th>
                         <th>Nome</th>
                         <th>CPF</th>
                         <th>Data de nascimento</th>
@@ -15,10 +16,11 @@
                 <tbody>
                     @foreach ($customers as $c)
                         <tr>
+                            <td>{{ $c->id }}</td>
                             <td>{{ $c->name }}</td>
                             <td>{{ $c->cpf }}</td>
-                            <td>{{ $c->birth_date }}</td>
-                            <td>{{ $c->phone }}</td>
+                            <td>{{ date('d/m/Y', strtotime($c->birth_date)) }}</td>
+                            <td>{{ $c->phone, 'BR' }}</td>
                             <td>{{ $c->email }}</td>
                             <td>
                                 <a href="{{ url('/clientes/editar', ['id' => $c->id]) }}"

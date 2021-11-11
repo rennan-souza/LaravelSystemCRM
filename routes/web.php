@@ -38,3 +38,8 @@ Route::post('/usuarios/editar', [UserController::class, 'editAction']);
 Route::get('/clientes/ajax', [CustomerController::class, 'listAction']);
 Route::get('/clientes', [CustomerController::class, 'listView']);
 Route::get('/clientes/cadastrar', [CustomerController::class, 'storeView']);
+Route::post('/clientes/cadastrar', [CustomerController::class, 'storeAction']);
+Route::get('/clientes/editar/{id}', [CustomerController::class, 'editView']);
+Route::post('/clientes/editar', [CustomerController::class, 'editAction']);
+Route::get('/clientes/excluir/{id}', [CustomerController::class, 'deleteView']);
+Route::get('/clientes/excluir/confirm/{id}', [CustomerController::class, 'deleteAction']);
