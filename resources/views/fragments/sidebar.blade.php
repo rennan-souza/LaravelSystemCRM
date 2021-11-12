@@ -31,7 +31,7 @@
             </div>
         </a>
 
-        <a href="#">
+        <a href="{{ url('/produtos') }}" class="{{ Request::is('produtos**') ? 'sidebar-link-active' : '' }}">
             <div class="sidebar-nav-icon">
                 <i class="fas fa-th-large"></i>
             </div>
@@ -40,6 +40,7 @@
             </div> 
         </a>
 
+        <!--
         <a href="#">
             <div class="sidebar-nav-icon">
                 <i class="fas fa-globe"></i>
@@ -57,5 +58,6 @@
                 Meus dados
             </div>
         </a>
+        -->
     </div>
 </div>

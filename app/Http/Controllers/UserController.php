@@ -141,7 +141,15 @@ class UserController extends Controller
   }
 
   public function deleteAction($id) {
+    
+    $user = User::find($id);
+
+    if (!$user) {
+      return redirect('/usuarios');
+    }
+
     User::find($id)->delete();
+
     return redirect('/usuarios')
       ->with('success', 'Usuário excluído com sucesso');
   }

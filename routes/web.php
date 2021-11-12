@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,3 +44,13 @@ Route::get('/clientes/editar/{id}', [CustomerController::class, 'editView']);
 Route::post('/clientes/editar', [CustomerController::class, 'editAction']);
 Route::get('/clientes/excluir/{id}', [CustomerController::class, 'deleteView']);
 Route::get('/clientes/excluir/confirm/{id}', [CustomerController::class, 'deleteAction']);
+
+
+Route::get('/produtos/ajax', [ProductController::class, 'listAction']);
+Route::get('/produtos', [ProductController::class, 'listView']);
+Route::get('/produtos/cadastrar', [ProductController::class, 'storeView']);
+Route::post('/produtos/cadastrar', [ProductController::class, 'storeAction']);
+Route::get('/produtos/editar/{id}', [ProductController::class, 'editView']);
+Route::post('/produtos/editar', [ProductController::class, 'editAction']);
+Route::get('/produtos/excluir/{id}', [ProductController::class, 'deleteView']);
+Route::get('/produtos/excluir/confirm/{id}', [ProductController::class, 'deleteAction']);

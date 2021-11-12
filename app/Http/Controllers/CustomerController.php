@@ -74,6 +74,10 @@ class CustomerController extends Controller
 
     $customer = Customer::find($id);
 
+    if (!$customer) {
+      return redirect('/clientes');
+    }
+
     return view('customers/edit', [
       'customer' => $customer
     ]);
@@ -106,6 +110,10 @@ class CustomerController extends Controller
 
     $customer = Customer::find($data['id']);
 
+    if (!$customer) {
+      return redirect('/clientes');
+    }
+
     $customer->name = $data['name'];
     $customer->cpf = $data['cpf'];
     $customer->birth_date = $data['birth_date'];
@@ -121,13 +129,25 @@ class CustomerController extends Controller
 
     $customer = Customer::find($id);
 
+    if (!$customer) {
+      return redirect('/clientes');
+    }
+
     return view('customers/delete', [
       'customer' => $customer
     ]);
   }
 
   public function deleteAction($id) {
-    Customer::find($id)->delete();
+    
+    $customer = Customer::find($id);
+
+    if (!$customer) {
+      return redirect('/clientes');
+    }
+
+    Customer::find($customer->id)->delete();
+    
     return redirect('/clientes')
       ->with('success', 'Cliente excluído com sucesso');
   }
