@@ -25,34 +25,28 @@
             <h2>System CRM</h2>
         </div>
         <div class="auth-title text-center text-secondary">
-            <h4>Login</h4>
+            <h4>Criar nova senha</h4>
         </div>
-        <form action="{{ url('/login') }}" method="POST">
+        <form action="{{ url('/nova-senha', ['token' => $token]) }}" method="POST">
             @csrf
             <div class="form-group">
-                <input type="text" class="form-control" name="email" placeholder="Email">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Senha">
+                @error('password') <small class="text-danger">{{ $message }}</small> @enderror
             </div>
+
             <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Senha">
+              <input type="password" class="form-control" name="password_confirmation" placeholder="Confirme a nova senha">
             </div>
+
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-block shadow-none"
                     onclick="setLoad()" id="btnSubmit">
-                    ENTRAR
+                    SALVAR
                 </button>
                 <button class="btn btn-primary btn-block shadow-none" type="button" disabled id="btnLoad" hidden>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                 </button>
             </div>
-
-            @if (session('danger'))
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    {{ session('danger') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-            @endif
 
             @if (session('success'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -64,8 +58,8 @@
             @endif
 
             <div class="form-group">
-                <a href="{{ url('/esqueci-minha-senha') }}">
-                    <small>Esqueci minha senha</small>
+                <a href="{{ url('/login') }}">
+                    <small>LOGIN</small>
                 </a>
             </div>
         </form>

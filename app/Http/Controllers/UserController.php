@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use App\Models\User;
 use App\Models\Role;
-use \App\Mail\sendNewUser;
+use App\Mail\SendNewUser;
 use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
@@ -78,8 +78,7 @@ class UserController extends Controller
       'provisional_password' => $provisional_password,
     ];
 
-    //\Mail::to($user->email)->send(new SendNewUser($variables));
-    Mail::to($user->email)->send(new sendNewUser($variables));
+    Mail::to($user->email)->send(new SendNewUser($variables));
 
     return redirect('/usuarios')
       ->with('success', 'Usuário cadastrado com sucesso');

@@ -13,14 +13,16 @@
             </div>
         </a>
 
-        <a href="{{ url('/usuarios') }}" class="{{ Request::is('usuarios**') ? 'sidebar-link-active' : '' }}">
-            <div class="sidebar-nav-icon">
-                <i class="fas fa-users"></i>
-            </div>
-            <div class="sidebar-nav-textlink">
-                Usuários
-            </div>
-        </a>
+        @can('ADMIN')
+            <a href="{{ url('/usuarios') }}" class="{{ Request::is('usuarios**') ? 'sidebar-link-active' : '' }}">
+                <div class="sidebar-nav-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="sidebar-nav-textlink">
+                    Usuários
+                </div>
+            </a>
+        @endcan
 
         <a href="{{ url('/clientes') }}" class="{{ Request::is('clientes**') ? 'sidebar-link-active' : '' }}">
             <div class="sidebar-nav-icon">
@@ -37,7 +39,7 @@
             </div>
             <div class="sidebar-nav-textlink">
                 Produtos
-            </div> 
+            </div>
         </a>
 
         <!--

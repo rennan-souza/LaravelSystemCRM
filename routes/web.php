@@ -20,9 +20,21 @@ use App\Http\Controllers\ProductController;
 |
 */
 
+Route::get('/', function() {
+  return redirect('login');
+});
 Route::get('/login', [AuthController::class, 'signinView'])->name('login');
 Route::post('/login', [AuthController::class, 'signinAction']);
+
+Route::get('/esqueci-minha-senha', [AuthController::class, 'recoverPasswordView']);
+Route::post('/esqueci-minha-senha', [AuthController::class, 'recoverPasswordAction']);
+
+Route::get('/nova-senha/{token}', [AuthController::class, 'resetPasswordView']);
+Route::post('/nova-senha/{token}', [AuthController::class, 'resetPasswordAction']);
+
 Route::get('/logout', [AuthController::class, 'logout']);
+
+
 
 Route::get('/dashboard', [DashboardController::class, 'dashboardView']);
 
