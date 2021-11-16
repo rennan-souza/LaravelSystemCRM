@@ -55,6 +55,7 @@
     </div>
     -->
 
+    <!--
     <div class="text-center my-2">
         <a href="{{ $products->url(1) }}"
             class="btn btn-sm btn-primary btn-pagination shadow-none {{ $products->currentPage() == 1 ? ' disabled' : '' }}">
@@ -75,6 +76,45 @@
         <br>
         <small>Página {{ $products->currentPage() }} de {{ $products->lastPage() }}</small>
     </div>
+    -->
+
+    <div class="text-center my-2">
+        <a href="{{ $products->url(1) }}"
+            class="btn btn-sm btn-primary btn-pagination shadow-none {{ $products->onFirstPage() ? ' disabled' : '' }}">
+            <i class="fas fa-angle-double-left"></i>
+        </a>
+
+        @for ($i = $products->currentPage() - ($products->perPage() + 1); $i <= $products->currentPage() - 1; $i++)
+            @if ($i >= 1)
+                <a href="{{ $products->url($i) }}"
+                    class="btn btn-sm btn-outline-primary btn-pagination shadow-none">
+                    {{ $i }}
+                </a>
+            @endif
+        @endfor
+
+        <a href="{{ $products->url($products->currentPage()) }}"
+            class="btn btn-sm btn-primary btn-pagination shadow-none">
+            {{ $products->currentPage() }}
+        </a>
+
+        @for ($i = $products->currentPage(); $i < $products->currentPage() + 2; $i++)
+            @if ($i < $products->lastPage())
+                <a href="{{ $products->url($i + 1) }}"
+                    class="btn btn-sm btn-outline-primary btn-pagination shadow-none">
+                    {{ $i + 1 }}
+                </a>
+            @endif
+        @endfor
+
+        <a href="{{ $products->url($products->lastPage()) }}"
+            class="btn btn-sm btn-primary btn-pagination shadow-none {{ $products->currentPage() == $products->lastPage() ? ' disabled' : '' }}">
+            <i class="fas fa-angle-double-right"></i>
+        </a>
+        <br>
+        <small>Página {{ $products->currentPage() }} de {{ $products->lastPage() }}</small>
+    </div>
+
 @else
     <div class="text-center py-5">
         <h4>Nenhum resultado encontrado</h4>
