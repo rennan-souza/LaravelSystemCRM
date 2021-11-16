@@ -48,6 +48,7 @@
     </div>
     -->
 
+    <!--
     <div class="text-center my-2">
         <a href="{{ $customers->url(1) }}"
             class="btn btn-sm btn-primary btn-pagination shadow-none {{ $customers->currentPage() == 1 ? ' disabled' : '' }}">
@@ -61,6 +62,44 @@
             class="btn btn-sm btn-primary btn-pagination shadow-none {{ $customers->currentPage() == $customers->lastPage() ? ' disabled' : '' }}">
             <i class="fas fa-angle-right"></i>
         </a>
+        <a href="{{ $customers->url($customers->lastPage()) }}"
+            class="btn btn-sm btn-primary btn-pagination shadow-none {{ $customers->currentPage() == $customers->lastPage() ? ' disabled' : '' }}">
+            <i class="fas fa-angle-double-right"></i>
+        </a>
+        <br>
+        <small>Página {{ $customers->currentPage() }} de {{ $customers->lastPage() }}</small>
+    </div>
+    -->
+
+    <div class="text-center my-2">
+        <a href="{{ $customers->url(1) }}"
+            class="btn btn-sm btn-primary btn-pagination shadow-none {{ $customers->onFirstPage() ? ' disabled' : '' }}">
+            <i class="fas fa-angle-double-left"></i>
+        </a>
+
+        @for ($i = $customers->currentPage() - ($customers->perPage() + 1); $i <= $customers->currentPage() - 1; $i++)
+            @if ($i >= 1)
+                <a href="{{ $customers->url($i) }}"
+                    class="btn btn-sm btn-outline-primary btn-pagination shadow-none">
+                    {{ $i }}
+                </a>
+            @endif
+        @endfor
+
+        <a href="{{ $customers->url($customers->currentPage()) }}"
+            class="btn btn-sm btn-primary btn-pagination shadow-none">
+            {{ $customers->currentPage() }}
+        </a>
+
+        @for ($i = $customers->currentPage(); $i < $customers->currentPage() + 2; $i++)
+            @if ($i < $customers->lastPage())
+                <a href="{{ $customers->url($i + 1) }}"
+                    class="btn btn-sm btn-outline-primary btn-pagination shadow-none">
+                    {{ $i + 1 }}
+                </a>
+            @endif
+        @endfor
+
         <a href="{{ $customers->url($customers->lastPage()) }}"
             class="btn btn-sm btn-primary btn-pagination shadow-none {{ $customers->currentPage() == $customers->lastPage() ? ' disabled' : '' }}">
             <i class="fas fa-angle-double-right"></i>
