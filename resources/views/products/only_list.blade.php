@@ -98,7 +98,7 @@
             {{ $products->currentPage() }}
         </a>
 
-        @for ($i = $products->currentPage(); $i < $products->currentPage() + 2; $i++)
+        @for ($i = $products->currentPage(); $i < $products->currentPage() + 1; $i++)
             @if ($i < $products->lastPage())
                 <a href="{{ $products->url($i + 1) }}"
                     class="btn btn-sm btn-outline-primary btn-pagination shadow-none">
