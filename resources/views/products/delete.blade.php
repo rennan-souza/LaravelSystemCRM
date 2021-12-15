@@ -3,9 +3,6 @@
 @section('title', 'Produto')
 
 @section('content')
-    <div class="text-secondary mb-3">
-        <h4>Produto</h4>
-    </div>
 
     <div class="card">
         <div class="card-body">
@@ -24,11 +21,11 @@
               </p>
             </div>  
             <div>
-              <a href="{{ url('/produtos/excluir/confirm', ['id' => $product->id]) }}" class="btn btn-danger shadow-none">
+              <a href="{{ url('/produtos/excluir/confirm', ['id' => $product->id]) }}" class="btn btn-danger btn-sm">
                 <i class="fas fa-trash-alt"></i>
                 EXCLUIR
               </a>
-              <a href="{{ url('/produtos') }}" class="btn btn-dark shadow-none">
+              <a href="{{ url('/produtos') }}" class="btn btn-secondary btn-sm">
                 <i class="fas fa-times-circle"></i>
                 CANCELAR
               </a>

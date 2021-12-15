@@ -3,15 +3,12 @@
 @section('title', 'Editar produto')
 
 @section('content')
-    <div class="text-secondary mb-3">
-        <h4>Editar produto</h4>
-    </div>
 
-    <div class="mb-2">
-        <a href="{{ url('/produtos') }}" class="link">
-            <i class="fas fa-arrow-alt-circle-left"></i>
-            Voltar
-        </a>
+    <div class="card">
+        <div class="card-body page-title-container">
+            <h4>Editar produto</h4>
+            <a href="{{ url('/produtos') }}" class="btn btn-sm btn-primary">Voltar</a>
+        </div>
     </div>
 
     <div class="card">
@@ -28,51 +25,53 @@
 
                 <div class="form-group">
                     <label>Selecione uma imagem para o produto:</label>
-                    <input type="file" name="image" class="form-control-file" id="image">
+                    <input type="file" name="image" class="form-control form-control-sm" id="image">
                 </div>
 
 
-                <div class="form-group">
-                    <label>Nome:</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                        value="{{ $product->name }}">
-                    @error('name') <small class="text-danger">{{ $message }}</small> @enderror
-                </div>
-                <div class="form-group">
-                    <label>Descrição:</label>
-                    <textarea class="form-control @error('description') is-invalid @enderror" rows="3"
-                        name="description">{{ $product->description }}</textarea>
-                    @error('description') <small class="text-danger">{{ $message }}</small> @enderror
-                </div>
+               <div class="row">
+                <div class="form-group col-lg-12">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" name="name"
+                            value="{{ $product->name }}">
+                        @error('name') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+                    <div class="form-group col-lg-12">
+                        <label>Descrição:</label>
+                        <textarea class="form-control form-control-sm @error('description') is-invalid @enderror" rows="2"
+                            name="description">{{ $product->description }}</textarea>
+                        @error('description') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
 
-                <div class="form-group">
-                    <label>Selecione a categoria</label>
-                    <select class="form-control @error('category') is-invalid @enderror" name="category">
-                        <option></option>
-                        @foreach ($categories as $c)
-                            <option value="{{ $c->id }}" {{ $product->category_id == $c->id ? 'selected' : '' }}>
-                                {{ $c->name }}</option>
-                        @endforeach
-                    </select>
-                    @error('category') <small class="text-danger">{{ $message }}</small> @enderror
-                </div>
+                    <div class="form-group col-lg-4">
+                        <label>Selecione a categoria</label>
+                        <select class="form-control form-control-sm @error('category') is-invalid @enderror" name="category">
+                            <option></option>
+                            @foreach ($categories as $c)
+                                <option value="{{ $c->id }}" {{ $product->category_id == $c->id ? 'selected' : '' }}>
+                                    {{ $c->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
 
-                <div class="form-group">
-                    <label>Preço:</label>
-                    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" id="price"
-                        value="{{ $product->price }}">
-                    @error('price') <small class="text-danger">{{ $message }}</small> @enderror
-                </div>
+                    <div class="form-group col-lg-4">
+                        <label>Preço:</label>
+                        <input type="text" class="form-control form-control-sm @error('price') is-invalid @enderror" name="price" id="price"
+                            value="{{ $product->price }}">
+                        @error('price') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
 
-                <div class="form-group">
-                    <label>Quantidade:</label>
-                    <input type="number" class="form-control @error('amount') is-invalid @enderror" name="amount"
-                        value="{{ $product->amount }}">
-                    @error('amount') <small class="text-danger">{{ $message }}</small> @enderror
-                </div>
+                    <div class="form-group col-lg-4">
+                        <label>Quantidade:</label>
+                        <input type="number" class="form-control form-control-sm @error('amount') is-invalid @enderror" name="amount"
+                            value="{{ $product->amount }}">
+                        @error('amount') <small class="text-danger">{{ $message }}</small> @enderror
+                    </div>
+               </div>
 
                 <div class="mt-3">
-                    <button class="btn btn-success shadow-none" id="submit">
+                    <button class="btn btn-success btn-sm" id="submit">
                         <i class="fas fa-save"></i>
                         SALVAR
                     </button>

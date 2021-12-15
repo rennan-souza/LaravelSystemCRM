@@ -24,7 +24,7 @@
 
     @include('fragments.sidebar')
 
-    <div class="container-content" id="containerContent">
+    <div class="content" id="content">
         @yield('content')
     </div>
 

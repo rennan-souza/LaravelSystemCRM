@@ -3,15 +3,12 @@
 @section('title', 'Editar usuário')
 
 @section('content')
-    <div class="text-secondary mb-3">
-        <h4>Editar usuário</h4>
-    </div>
 
-    <div class="mb-2">
-        <a href="{{ url('/usuarios') }}" class="link">
-            <i class="fas fa-arrow-alt-circle-left"></i>
-            Voltar
-        </a>
+    <div class="card">
+        <div class="card-body page-title-container">
+            <h4>Editar usuário</h4>
+            <a href="{{ url('/usuarios') }}" class="btn btn-sm btn-primary">Voltar</a>
+        </div>
     </div>
 
     <div class="card">
@@ -22,13 +19,13 @@
                 <input type="hidden" name="id" value="{{ $user->id }}">
                 <div class="form-group">
                     <label>Nome:</label>
-                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                    <input type="text" class="form-control form-control-sm @error('name') is-invalid @enderror" name="name"
                         value="{{ $user->name }}">
                     @error('name') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
                 <div class="form-group">
                     <label>Email:</label>
-                    <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
+                    <input type="text" class="form-control form-control-sm @error('email') is-invalid @enderror" name="email"
                         value="{{ $user->email }}">
                     @error('email') <small class="text-danger">{{ $message }}</small> @enderror
                 </div>
@@ -43,10 +40,10 @@
                             </label>
                         </div>
                     @endforeach
-                    @error('roles') <small class="text-danger">Selecione pelo menos um perfil</small> @enderror
+                    @error('roles') <small class="text-danger">Selecione pelo menos um perfil.</small> @enderror
                 </div>
                 <div class="mt-3">
-                    <button class="btn btn-success shadow-none">
+                    <button class="btn btn-success btn-sm">
                         <i class="fas fa-save"></i>
                         SALVAR
                     </button>

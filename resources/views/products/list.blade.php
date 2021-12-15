@@ -3,15 +3,12 @@
 @section('title', 'Produtos')
 
 @section('content')
-    <div class="text-secondary mb-3">
-        <h4>Produtos</h4>
-    </div>
 
-    <div class="mb-2">
-        <a href="{{ url('/produtos/cadastrar') }}" class="btn btn-success shadow-none">
-            <i class="fas fa-plus"></i>
-            NOVO
-        </a>
+    <div class="card">
+        <div class="card-body page-title-container">
+            <h4>Produtos</h4>
+            <a href="{{ url('/produtos/cadastrar') }}" class="btn btn-sm btn-primary">Cadastrar novo</a>
+        </div>
     </div>
 
     @if (session('success'))

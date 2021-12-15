@@ -3,23 +3,24 @@
 @section('title', 'Usuários')
 
 @section('content')
-    <div class="text-secondary mb-3">
-        <h4>Usuários</h4>
-    </div>
 
-    <div class="mb-2">
-        <a href="{{ url('/usuarios/cadastrar') }}" class="btn btn-success shadow-none">
-            <i class="fas fa-plus"></i>
-            NOVO
-        </a>
-    </div>
-
-    <form action="{{ url('/usuarios') }}" method="GET" id="form">
-        <div class="mb-2" style="width: 250px;">
-            <input type="text" class="form-control shadow-none" name="search" placeholder="Pesquisar">
-            <input type="hidden" id="page" name="page" value="0">
+    <div class="card">
+        <div class="card-body page-title-container">
+            <h4>Usuários</h4>
+            <a href="{{ url('/usuarios/cadastrar') }}" class="btn btn-sm btn-primary">Cadastrar novo</a>
         </div>
-    </form>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <form action="{{ url('/usuarios') }}" method="GET" id="form">
+                <div class="search-container">
+                    <input type="text" name="search" class="form-control form-control-sm" placeholder="Pesquisar">
+                    <input type="hidden" id="page" name="page" value="0">
+                </div>
+            </form>
+        </div>
+    </div>
 
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">

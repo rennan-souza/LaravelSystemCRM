@@ -3,10 +3,6 @@
 @section('title', 'Cliente')
 
 @section('content')
-    <div class="text-secondary mb-3">
-        <h4>Cliente</h4>
-    </div>
-
     <div class="card">
         <div class="card-body">
             <div class="mb-4 text-warning">
@@ -22,11 +18,11 @@
               </p>
             </div>  
             <div>
-              <a href="{{ url('/clientes/excluir/confirm', ['id' => $customer->id]) }}" class="btn btn-danger shadow-none">
+              <a href="{{ url('/clientes/excluir/confirm', ['id' => $customer->id]) }}" class="btn btn-danger btn-sm">
                 <i class="fas fa-trash-alt"></i>
                 EXCLUIR
               </a>
-              <a href="{{ url('/clientes') }}" class="btn btn-dark shadow-none">
+              <a href="{{ url('/clientes') }}" class="btn btn-secondary btn-sm">
                 <i class="fas fa-times-circle"></i>
                 CANCELAR
               </a>
