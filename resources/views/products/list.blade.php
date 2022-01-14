@@ -48,7 +48,7 @@
         function getTable(page) {
             var page = $('#page').val(page);
             $.ajax({
-                url: '{{ url('/produtos/ajax') }}',
+                url: '{{ url("/produtos/ajax") }}',
                 method: 'GET',
                 data: page
             }).done(function(data) {

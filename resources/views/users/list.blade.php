@@ -11,6 +11,7 @@
         </div>
     </div>
 
+
     <div class="card">
         <div class="card-body">
             <form action="{{ url('/usuarios') }}" method="GET" id="form">
@@ -21,6 +22,7 @@
             </form>
         </div>
     </div>
+  
 
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -60,7 +62,7 @@
             var data = $('#form').serialize();
 
             $.ajax({
-                url: '{{ url('/usuarios/ajax') }}',
+                url: '{{ url("/usuarios/ajax") }}',
                 method: 'GET',
                 data: data
             }).done(function(data) {

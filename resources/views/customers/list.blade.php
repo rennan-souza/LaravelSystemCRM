@@ -60,7 +60,7 @@
             var data = $('#form').serialize();
 
             $.ajax({
-                url: '{{ url('/clientes/ajax') }}',
+                url: '{{ url("/clientes/ajax") }}',
                 method: 'GET',
                 data: data
             }).done(function(data) {
